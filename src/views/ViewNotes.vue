@@ -1,7 +1,14 @@
 <template>
   <div class="notes">
     <div class="card has-background-success-dark p-4 mb-5">
-      <div class="field">
+      <AddEditNote>
+        <template #buttons>
+          <button class="button is-link  has-background-success" @click="addNewNote" :disabled="!newNote">Add new
+            note</button>
+        </template>
+      </AddEditNote>
+
+      <!-- <div class="field">
         <label class="label">Message</label>
         <div class="control">
           <textarea v-model="newNote" class="textarea" placeholder="Add a new note" ref="newNoteRef" />
@@ -13,7 +20,7 @@
           <button class="button is-link  has-background-success" @click="addNewNote" :disabled="!newNote">Add new
             note</button>
         </div>
-      </div>
+      </div> -->
 
       <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" @deleteClicked="deleteNote" />
 
@@ -25,6 +32,7 @@
 // imports
 import { ref } from 'vue';
 import Note from '@/components/notes/Note.vue'
+import AddEditNote from '@/components/notes/AddEditNote.vue'
 import { useStoreNotes } from '@/stores/storeNotes'
 
 // notes
