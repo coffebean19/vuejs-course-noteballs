@@ -1,14 +1,17 @@
 <template>
   <div class="notes">
-    <div class="card has-background-success-dark p-4 mb-5">
-      <AddEditNote>
-        <template #buttons>
-          <button class="button is-link  has-background-success" @click="addNewNote" :disabled="!newNote">Add new
-            note</button>
-        </template>
-      </AddEditNote>
+    <AddEditNote v-model="newNote">
+      <template #buttons>
+        <button class="button is-link  has-background-success" @click="addNewNote" :disabled="!newNote">Add new
+          note</button>
+      </template>
+    </AddEditNote>
 
-      <!-- <div class="field">
+    <pre>
+{{ newNote }}
+      </pre>
+
+    <!-- <div class="field">
         <label class="label">Message</label>
         <div class="control">
           <textarea v-model="newNote" class="textarea" placeholder="Add a new note" ref="newNoteRef" />
@@ -22,9 +25,8 @@
         </div>
       </div> -->
 
-      <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" @deleteClicked="deleteNote" />
+    <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" @deleteClicked="deleteNote" />
 
-    </div>
   </div>
 </template>
 
@@ -37,7 +39,7 @@ import { useStoreNotes } from '@/stores/storeNotes'
 
 // notes
 
-const newNote = ref('');
+const newNote = ref('asdfsadf');
 const newNoteRef = ref(null);
 
 const storeNotes = useStoreNotes();
