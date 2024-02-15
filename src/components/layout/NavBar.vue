@@ -5,13 +5,13 @@
         <div class="navbar-item is-size-4 is-family-monospace">Noteballs</div>
 
         <a @click.prevent="showModal = !showModal" role="button" :class="{ 'is-active': showModal }" class="navbar-burger"
-          aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref="navbarBurgerRef">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div id="navbarBasicExample" :class="{ 'is-active': showModal }" class="navbar-menu">
+      <div id="navbarBasicExample" :class="{ 'is-active': showModal }" class="navbar-menu" ref="navbarMenuRef">
         <div class="navbar-end">
           <RouterLink @click="showModal = false" to="/" class="navbar-item" active-class="is-active">Notes</RouterLink>
           <RouterLink @click="showModal = false" to="/stats" class="navbar-item" active-class="is-active">Stats
@@ -26,9 +26,20 @@
 <script setup>
 //imports
 import { ref } from "vue";
+import { onClickOutside } from "@vueuse/core"
 
 //Navbar burger button
 const showModal = ref(false);
+
+const navbarMenuRef = ref(null);
+const navbarBurgerRef = ref(null);
+
+onClickOutside(navbarMenuRef, () => {
+  showModal.value = false;
+}, {
+  ignore:
+    [navbarBurgerRef]
+});
 
 </script>
 

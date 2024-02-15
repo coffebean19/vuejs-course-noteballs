@@ -4,7 +4,7 @@
     <div class="field">
       <div class="control">
         <textarea :value="props.modelValue" @input="$emit('update:modelValue', $event.target.value)" class="textarea"
-          :placeholder="placeholder" ref="textareaRef" />
+          :placeholder="placeholder" ref="textareaRef" v-autofocus maxlength="100" />
       </div>
     </div>
 
@@ -19,6 +19,7 @@
 <script setup>
 // imports
 import { ref } from 'vue';
+import { vAutofocus } from "@/directives/vAutofocus.js";
 
 // props
 const props = defineProps({
@@ -40,6 +41,7 @@ const props = defineProps({
 })
 
 // emits
+// eslint-disable-next-line no-unused-vars
 const emit = defineEmits(['update:modelValue'])
 
 // focus text area
@@ -52,5 +54,4 @@ const focusTextArea = () => {
 defineExpose({
   focusTextArea
 })
-
 </script>
