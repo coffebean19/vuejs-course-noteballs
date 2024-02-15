@@ -13,8 +13,9 @@
       </div>
       <div id="navbarBasicExample" :class="{ 'is-active': showModal }" class="navbar-menu">
         <div class="navbar-end">
-          <RouterLink to="/" class="navbar-item" active-class="is-active">Notes</RouterLink>
-          <RouterLink to="/stats" class="navbar-item" active-class="is-active">Stats</RouterLink>
+          <RouterLink @click="showModal = false" to="/" class="navbar-item" active-class="is-active">Notes</RouterLink>
+          <RouterLink @click="showModal = false" to="/stats" class="navbar-item" active-class="is-active">Stats
+          </RouterLink>
         </div>
       </div>
     </div>

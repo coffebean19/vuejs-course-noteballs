@@ -17,10 +17,11 @@ import { ref } from 'vue';
 import AddEditNote from '@/components/notes/AddEditNote.vue';
 import { useStoreNotes } from '@/stores/storeNotes'
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 // router
 const route = useRoute();
-
+const router = useRouter();
 
 // store
 const noteStore = useStoreNotes();
@@ -32,6 +33,7 @@ noteContent.value = noteStore.getNoteContent(route.params.id);
 // handle save click
 const handeSaveClick = () => {
   noteStore.editNote(route.params.id, noteContent.value);
+  router.push('/');
 }
 
 </script>
