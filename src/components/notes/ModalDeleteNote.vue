@@ -25,6 +25,7 @@ import { useStoreNotes } from "@/stores/storeNotes";
 
 
 // props
+// eslint-disable-next-line no-unused-vars
 const props = defineProps({
   modelValue: {
     type: Boolean,
