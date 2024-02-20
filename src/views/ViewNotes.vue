@@ -7,7 +7,7 @@
       </template>
     </AddEditNote>
 
-    <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" @deleteClicked="deleteNote" />
+    <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" />
 
   </div>
 </template>
@@ -28,7 +28,7 @@ const storeNotes = useStoreNotes();
 const addEditNoteRef = ref(null);
 
 const addNewNote = () => {
-  storeNotes.addNote(newNote);
+  storeNotes.addNote(newNote.value);
   newNote.value = '';
   addEditNoteRef.value.focusTextArea();
 }

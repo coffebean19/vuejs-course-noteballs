@@ -47,7 +47,6 @@ export const useStoreNotes = defineStore('storeNotes', {
     async addNote(noteContent) {
       let currentDate = new Date().getTime(),
         id = currentDate.toString();
-
       // const note = {
       //   id,
       //   content: noteContent.value,

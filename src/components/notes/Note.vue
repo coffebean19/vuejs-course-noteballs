@@ -26,6 +26,7 @@ import { useStoreNotes } from '@/stores/storeNotes';
 import ModalDeleteNote from './ModalDeleteNote.vue';
 
 // store
+// eslint-disable-next-line no-unused-vars
 const storeNotes = useStoreNotes();
 
 // props
