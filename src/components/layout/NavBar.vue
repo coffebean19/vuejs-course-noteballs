@@ -12,6 +12,9 @@
         </a>
       </div>
       <div id="navbarBasicExample" :class="{ 'is-active': showModal }" class="navbar-menu" ref="navbarMenuRef">
+        <div class="navbar-start">
+          <button class="button is-small is-info mt-3 ml-3">Log out</button>
+        </div>
         <div class="navbar-end">
           <RouterLink @click="showModal = false" to="/" class="navbar-item" active-class="is-active">Notes</RouterLink>
           <RouterLink @click="showModal = false" to="/stats" class="navbar-item" active-class="is-active">Stats
