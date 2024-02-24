@@ -13,7 +13,7 @@
       </div>
       <div id="navbarBasicExample" :class="{ 'is-active': showModal }" class="navbar-menu" ref="navbarMenuRef">
         <div class="navbar-start">
-          <button class="button is-small is-info mt-3 ml-3">Log out</button>
+          <button class="button is-small is-info mt-3 ml-3" @click="storeAuth.logoutUser">Log out</button>
         </div>
         <div class="navbar-end">
           <RouterLink @click="showModal = false" to="/" class="navbar-item" active-class="is-active">Notes</RouterLink>
@@ -30,6 +30,10 @@
 //imports
 import { ref } from "vue";
 import { onClickOutside } from "@vueuse/core"
+import { useStoreAuth } from '@/stores/storeAuth';
+
+// store
+const storeAuth = useStoreAuth();
 
 //Navbar burger button
 const showModal = ref(false);
