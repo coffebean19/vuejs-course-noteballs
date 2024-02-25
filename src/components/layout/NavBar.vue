@@ -13,7 +13,8 @@
       </div>
       <div id="navbarBasicExample" :class="{ 'is-active': showModal }" class="navbar-menu" ref="navbarMenuRef">
         <div class="navbar-start">
-          <button class="button is-small is-info mt-3 ml-3" @click="storeAuth.logoutUser">Log out</button>
+          <button v-if="storeAuth.user.id" class="button is-small is-info mt-3 ml-3" @click="logOut">Log
+            out {{ storeAuth.user.email }}</button>
         </div>
         <div class="navbar-end">
           <RouterLink @click="showModal = false" to="/" class="navbar-item" active-class="is-active">Notes</RouterLink>
@@ -47,6 +48,12 @@ onClickOutside(navbarMenuRef, () => {
   ignore:
     [navbarBurgerRef]
 });
+
+// logout
+const logOut = () => {
+  showModal.value = false;
+  storeAuth.logoutUser()
+}
 
 </script>
 
